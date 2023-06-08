@@ -8,30 +8,59 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.css">
+     <script src="https://cdn.tailwindcss.com"></script>
+     <style>
+      main>.container {
+          padding: 60px 15px 0;
+          margin-bottom: 5rem;
+      }
+      .sticky-footer {
+          position: sticky;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+      }
+      body{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 110%;
+        background-color:rgb(39, 37, 32);
+      }
+      .card{
+        border-color: brown;
+      }
+  </style>
+
 </head>
 <body>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Reservation</a>
+      <a class="navbar-brand" href="#">YONLI MOUSSA</a>
       <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavId">
           <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+              
               <li class="nav-item">
-                  <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                  <a class="nav-link" href="#f" >Formation</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="">Gars</a>
+                  <a class="nav-link" href="#e">Experiences professionnelles</a>
               </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Autres</a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownId">
-                      <a class="dropdown-item" href="#">Action 1</a>
-                      <a class="dropdown-item" href="#">Action 2</a>
-                  </div>
+              <li class="nav-item">
+                  <a class="nav-link" href="#c">Competences</a>
               </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#b">Bureautique</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#l">Langues</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#p">Projets</a>
+              </li>
+              
           </ul>
           <!-- <form class="d-flex">
               <input class="form-control me-sm-2" type="text" placeholder="Recherche">
@@ -42,13 +71,54 @@
    </div>
  </nav>
  <div class="container mt-4 mb-4">
+  <div class="row mx-auto m-3">
+    <div class="col-md-5 col-sm-* mt-5 ">
+      <div class="">
+        <img src="identite.jpg" alt="" style="height: 50%;width: 070%;">
+      </div>
+    </div>
+    <div class="col-md-7 text-white mt-5">
+     <p>YONLI MOUSSA</p> 
+<p>Ouagadougou, Burkina Faso</p> 
+<p>Tel : +226 60 26 16 56/57 20 02 99</p> 
+<p> E-mail :mbyonli@gmail.com</p>
+<p> <p>Sc: YONLI YENIKIEDIBA</p> 
+Tél : +226 72 70 87 25/67 56 67 70</p> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-*  ">
+      <div class="card border-success">
+        <span class="text-center" style="font-size: 300%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><i class="bi bi-person"></i>A PROPOS DE MOI</span>
+     <div class="card-body">
+      Je suis passionné par le
+développement web full
+stack. Je développe des sites
+web professionnels avec le
+Framework Laravel de PHP
+et le Framework frontal
+Bootstrap pour une
+meilleure expérience
+utilisateur.
+
+     </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-">
+      <div class="card">
+        <span class="text-center"  id="f" style="font-size: 300%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><i class="bi bi-mortarboard"></i> FORMATION</span>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-6">
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <div class="col-md-6 col-sm-6">col 1</div>
-            <div class="col-md-6 col-sm-6">col 2</div>
+            <div class="col-md-6 col-sm-4">2018-2021</div>
+            <div class="col-md-6 col-sm-8">Licence fondamentale en mathematiques et informatiques option génie logiciel à la faculté des sciences Agadir ,Maroc.</div>
           </div>
         </div>
       </div>
@@ -56,7 +126,10 @@
     <div class="col-md-6">
       <div class="card ">
         <div class="card-body">
-          card 2
+          <div class="row">
+            <div class="col-md-6">2015-2018</div>
+            <div class="col-md-6">Baccalaureat scientifique science de la vie et mathematiques serie D au lycée Diaba Lompo à Fada N'Gourma,Burkina Faso</div>
+          </div>
         </div>
       </div>
     </div>
@@ -66,19 +139,197 @@
     <div class="col-md-6">
       <div class="card ">
         <div class="card-body">
-          card 3
+          <div class="row">
+            <div class="col-md-6 ">2011-2015</div>
+          <div class="col-md-6">Brevet d’étude du premier cycle au lycée
+            départemental de Tansarga, Burkina Faso.</div>
+          </div>
         </div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="card">
         <div class="card-body">
-          card4
+        <div class="row">
+          <div class="col-md-6">2005-2011</div>
+          <div class="col-md-6">Certificat d'etude primaire à l'ecole primaire de Bodiaga,Tapoa,Burkina Faso</div>
+       
+        </div>  
         </div>
       </div>
     </div>
   </div>
-  
+  <div class="row">
+    <div class="col-md-">
+      <div class="card">
+        <span class="text-center" id="e" style="font-size: 300%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">EXPERIENCES PROFESSIONNELLES</span>
+      </div>
+    </div>
+    <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card ">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 ">Novembre 2021-Avril 2022 :</div>
+          <div class="col-md-6">: Stage à Endeavour Mining,
+département IT, Région de l’Est, Burkina Faso.
+ </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+        <div class="row">
+          <div class="col-md-6">6 Juin6-Septembre 2022 :</div>
+          <div class="col-md-6">Stage à CIAPEES en
+développement web, Ouagadougou, Burkina Faso.</div>
+       
+        </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="row" id="c">
+    <div class="col-md-">
+      <div class="card">
+        <span class="text-center"  style="font-size: 300%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><i class="bi bi-award"></i> COMPETENCES</span>
+      </div>
+    </div>
+     <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 col-sm-4">Environnement de travail :</div>
+            <div class="col-md-6 col-sm-8">Windows,Linux.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card ">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">Systeme de Gestion de Base de Donnés(SGBD)</div>
+            <div class="col-md-6">MySQL, Oracle, SQL Server</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+     <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 col-sm-4">Langages de Programmation :</div>
+            <div class="col-md-6 col-sm-8">C, C++, Java, JavaScript,
+PL/SQL, Visual Basic, PHP.
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card ">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6"> Développement web </div>
+            <div class="col-md-6">: Laravel, HTML/CSS, Bootstrap</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+     <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 col-sm-4">CMS/IDE :</div>
+            <div class="col-md-6 col-sm-8">Eclipse, Visual Studio Code,Sublime Text</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card ">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">Autres :</div>
+            <div class="col-md-6">Réseau informatique,recherche opérationnelle, Algorithme,
+probabilités et statistiques</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="row" id="b">
+    <div class="col-md-">
+      <div class="card">
+        <span class="text-center" style="font-size: 300%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><i class="bi bi-office"></i> Bureautique</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-*">
+        <div class="card">
+          <div class="row">
+            <div class="col-md-4">Excel: Niveau intermediaire</div>
+            <div class="col-md-4">Word: Niveau intermediaire</div>
+            <div class="col-md-4">PowerPoint: Niveau intermediaire</div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+
+  <div class="row" id="l">
+    <div class="col-md-">
+      <div class="card">
+        <span class="text-center" style="font-size: 300%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><i class="bi bi-langue"></i> Langues</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-*">
+        <div class="card">
+          <div class="row">
+            <div class="col-md-4">Gourmantchéma :Langue maternelle</div>
+            <div class="col-md-4">Français: Très bien</div>
+            <div class="col-md-4">Anglais:Bien</div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+
+  <div class="row" id="p">
+    <div class="col-md-">
+      <div class="card">
+        <span class="text-center" style="font-size: 300%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><i class="bi bi-book"></i>Projets</span>
+      </div>
+    </div>
+    <!-- Some borders are removed -->
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Participation à la refonte du site de ciapees lors de mon
+        stage.
+        </li>
+      <li class="list-group-item"></li>
+      <li class="list-group-item">Participation au développement d’une application de
+        gestion de transport de voyage à la mine de Boungou avec
+        Vb.net.</li>
+      <li class="list-group-item">Réalisation d'un site web de gestion d'evenement avec PHP </li>
+      <li class="list-group-item">site web pour restaurant réalisé avec le framework Laravel de PHP</li>
+      </ul>
+  </div>
+ 
+
  </div>
     <!-- <div class="container">
         <div class="col-md mt-4 ">
@@ -94,7 +345,7 @@
               </div>
         </div>
         
-            <div class="card mx-auto mt-3" style="width: 12rem;">
+            <div class="card  mx-auto mt-3" style="width: 12rem;">
                 <img src="pi.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <p class="card-text">Moussa Yonli </p>
@@ -103,6 +354,27 @@
               </div>
         
     </div> -->
+   
+      
     
+   
+   
+    
+        
+        <footer class="footer mt-auto py-3 bg-light sticky-footer">
+            <div class="container-fluid text-center">
+              <a href="#"><i class="bi bi-arrow-up"></i> Haut de page</a>
+                <span class="text-muted">Contacts</span>
+                <div class="row">
+                  <div class="col-md-4">Téléphone: <i class="bi bi-whatsapp"></i> +226 60 26 16 56/57 20 02 99/+212 6 87 79 16 80
+                  </div>
+                  <div class="col-md-4">Ouagadougou,Burkina Faso</div>
+                  <div class="col-md-4">Mail: <a href="mailto:mbyonli@gmail.com">mbyonli@gmail.com</a></div>
+                </div>
+              
+            </div>
+        </footer>
+       
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
