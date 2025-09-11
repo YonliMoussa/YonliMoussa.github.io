@@ -1,380 +1,774 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="bootstrap-icons/font/bootstrap-icons.css">
-     <script src="https://cdn.tailwindcss.com"></script>
-     <style>
-      main>.container {
-          padding: 60px 15px 0;
-          margin-bottom: 5rem;
-      }
-      .sticky-footer {
-          position: sticky;
-          left: 0;
-          bottom: 0;
-          width: 100%;
-      }
-      body{
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 110%;
-        background-color:rgb(39, 37, 32);
-      }
-      .card{
-        border-color: brown;
-      }
-  </style>
+    <title>YONLI MOUSSA - Développeur Web Full Stack</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --dark-bg: #1f2937;
+            --light-bg: #f8fafc;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --border-color: #e5e7eb;
+        }
 
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            padding-top: 80px; /* Ajout d'espace pour la navbar fixe */
+        }
+
+        /* Navigation - Corrections importantes */
+        .navbar {
+            background: rgba(31, 41, 55, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1050; /* Assure que la nav reste au-dessus */
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--accent-color) !important;
+        }
+
+        /* Correction pour les liens de navigation */
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9) !important;
+            padding: 0.8rem 1rem !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 5px;
+            left: 50%;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 80%;
+        }
+
+        /* Correction pour le bouton toggle mobile */
+        .navbar-toggler {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+            border-color: var(--accent-color);
+        }
+
+        /* Correction pour le menu mobile */
+        .navbar-collapse {
+            background: rgba(31, 41, 55, 0.98);
+            padding: 1rem;
+            margin-top: 0.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-nav {
+                text-align: center;
+            }
+            
+            .navbar-nav .nav-link {
+                padding: 0.8rem 0 !important;
+                margin: 0.2rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .navbar-nav .nav-link:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 50px 0 50px; /* Réduit le padding-top */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 6px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Cards */
+        .custom-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .custom-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+            transform: translateX(-50%);
+        }
+
+        .section-title i {
+            color: var(--primary-color);
+            margin-right: 1rem;
+        }
+
+        /* Timeline */
+        .timeline-item {
+            position: relative;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-content {
+            margin-top: 0.5rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Skills */
+        .skill-item {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .skill-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-content {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* About Section */
+        .about-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: rotate(45deg);
+        }
+
+        .about-content {
+            position: relative;
+            z-index: 2;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        /* Projects */
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            transform: translateX(5px);
+        }
+
+        /* Contact Info */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+            margin-right: 1rem;
+            width: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-section {
+                padding: 30px 0 30px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Correction pour éviter le chevauchement avec la navbar */
+        section {
+            scroll-margin-top: 80px;
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">YONLI MOUSSA</a>
-      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-              
-              <li class="nav-item">
-                  <a class="nav-link" href="#f" >Formation</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#e">Experiences professionnelles</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#c">Competences</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#b">Bureautique</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#l">Langues</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#p">Projets</a>
-              </li>
-              
-          </ul>
-          <!-- <form class="d-flex">
-              <input class="form-control me-sm-2" type="text" placeholder="Recherche">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher</button>
-          </form> -->
-        
-      </div>
-   </div>
- </nav>
- <div class="container mt-4 mb-4">
-  <div class="row mx-auto m-3">
-    <div class="col-md-5 col-sm-* mt-5 ">
-      <div class="">
-        <img src="identite.jpg" alt="" style="height: 50%;width: 070%;">
-      </div>
-    </div>
-    <div class="col-md-7 text-white mt-5">
-     <p>YONLI MOUSSA</p> 
-<p>Ouagadougou, Burkina Faso</p> 
-<p>Tel : +226 60 26 16 56/57 20 02 99</p> 
-<p> E-mail :mbyonli@gmail.com</p>
-<p> <p>Sc: YONLI YENIKIEDIBA</p> 
-Tél : +226 72 70 87 25/67 56 67 70</p> 
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-*  ">
-      <div class="card border-success">
-        <span class="text-center" style="font-size: 300%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><i class="bi bi-person"></i>A PROPOS DE MOI</span>
-     <div class="card-body">
-      Je suis passionné par le
-développement web full
-stack. Je développe des sites
-web professionnels avec le
-Framework Laravel de PHP
-et le Framework frontal
-Bootstrap pour une
-meilleure expérience
-utilisateur.
-
-     </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-">
-      <div class="card">
-        <span class="text-center"  id="f" style="font-size: 300%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><i class="bi bi-mortarboard"></i> FORMATION</span>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6 col-sm-4">2018-2021</div>
-            <div class="col-md-6 col-sm-8">Licence fondamentale en mathematiques et informatiques option génie logiciel à la faculté des sciences Agadir ,Maroc.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card ">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6">2015-2018</div>
-            <div class="col-md-6">Baccalaureat scientifique science de la vie et mathematiques serie D au lycée Diaba Lompo à Fada N'Gourma,Burkina Faso</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-  </div>
-  <div class="row mb-4">
-    <div class="col-md-6">
-      <div class="card ">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6 ">2011-2015</div>
-          <div class="col-md-6">Brevet d’étude du premier cycle au lycée
-            départemental de Tansarga, Burkina Faso.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">2005-2011</div>
-          <div class="col-md-6">Certificat d'etude primaire à l'ecole primaire de Bodiaga,Tapoa,Burkina Faso</div>
-       
-        </div>  
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-">
-      <div class="card">
-        <span class="text-center" id="e" style="font-size: 300%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">EXPERIENCES PROFESSIONNELLES</span>
-      </div>
-    </div>
-    <div class="row mb-4">
-    <div class="col-md-6">
-      <div class="card ">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6 ">Novembre 2021-Avril 2022 :</div>
-          <div class="col-md-6">: Stage à Endeavour Mining,
-département IT, Région de l’Est, Burkina Faso.
- </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">6 Juin6-Septembre 2022 :</div>
-          <div class="col-md-6">Stage à CIAPEES en
-développement web, Ouagadougou, Burkina Faso.</div>
-       
-        </div>  
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-  <div class="row" id="c">
-    <div class="col-md-">
-      <div class="card">
-        <span class="text-center"  style="font-size: 300%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><i class="bi bi-award"></i> COMPETENCES</span>
-      </div>
-    </div>
-     <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6 col-sm-4">Environnement de travail :</div>
-            <div class="col-md-6 col-sm-8">Windows,Linux.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card ">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6">Systeme de Gestion de Base de Donnés(SGBD)</div>
-            <div class="col-md-6">MySQL, Oracle, SQL Server</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-     <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6 col-sm-4">Langages de Programmation :</div>
-            <div class="col-md-6 col-sm-8">C, C++, Java, JavaScript,
-PL/SQL, Visual Basic, PHP.
-</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card ">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6"> Développement web </div>
-            <div class="col-md-6">: Laravel, HTML/CSS, Bootstrap</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-     <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6 col-sm-4">CMS/IDE :</div>
-            <div class="col-md-6 col-sm-8">Eclipse, Visual Studio Code,Sublime Text</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card ">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-6">Autres :</div>
-            <div class="col-md-6">Réseau informatique,recherche opérationnelle, Algorithme,
-probabilités et statistiques</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-
-  <div class="row" id="b">
-    <div class="col-md-">
-      <div class="card">
-        <span class="text-center" style="font-size: 300%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><i class="bi bi-office"></i> Bureautique</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-*">
-        <div class="card">
-          <div class="row">
-            <div class="col-md-4">Excel: Niveau intermediaire</div>
-            <div class="col-md-4">Word: Niveau intermediaire</div>
-            <div class="col-md-4">PowerPoint: Niveau intermediaire</div>
-          </div>
-        </div>
-      </div>
-     
-    </div>
-  </div>
-
-  <div class="row" id="l">
-    <div class="col-md-">
-      <div class="card">
-        <span class="text-center" style="font-size: 300%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><i class="bi bi-langue"></i> Langues</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-*">
-        <div class="card">
-          <div class="row">
-            <div class="col-md-4">Gourmantchéma :Langue maternelle</div>
-            <div class="col-md-4">Français: Très bien</div>
-            <div class="col-md-4">Anglais:Bien</div>
-          </div>
-        </div>
-      </div>
-     
-    </div>
-  </div>
-
-  <div class="row" id="p">
-    <div class="col-md-">
-      <div class="card">
-        <span class="text-center" style="font-size: 300%;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><i class="bi bi-book"></i>Projets</span>
-      </div>
-    </div>
-    <!-- Some borders are removed -->
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Participation à la refonte du site de ciapees lors de mon
-        stage.
-        </li>
-      <li class="list-group-item"></li>
-      <li class="list-group-item">Participation au développement d’une application de
-        gestion de transport de voyage à la mine de Boungou avec
-        Vb.net.</li>
-      <li class="list-group-item">Réalisation d'un site web de gestion d'evenement avec PHP </li>
-      <li class="list-group-item">site web pour restaurant réalisé avec le framework Laravel de PHP</li>
-      </ul>
-  </div>
- 
-
- </div>
-    <!-- <div class="container">
-        <div class="col-md mt-4 ">
-            <div class="card bg-success">
-                <div class="card-body">
-                  <div class="card">
-                    <div class="card-body text-center">
-                    Test de mise en ligne d'un site web .
-                    Test d'accessibilté par d'autres appareils distants.
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>
-        
-            <div class="card  mx-auto mt-3" style="width: 12rem;">
-                <img src="pi.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text">Moussa Yonli </p>
-                  <span class="text-muted">Développeur web</span>
-                </div>
-              </div>
-        
-    </div> -->
-   
-      
-    
-   
-   
-    
-        
-        <footer class="footer mt-auto py-3 bg-light sticky-footer">
-            <div class="container-fluid text-center">
-              <a href="#"><i class="bi bi-arrow-up"></i> Haut de page</a>
-                <span class="text-muted">Contacts</span>
-                <div class="row">
-                  <div class="col-md-4">Téléphone: <i class="bi bi-whatsapp"></i> +226 60 26 16 56/57 20 02 99/+212 6 87 79 16 80
-                  </div>
-                  <div class="col-md-4">Ouagadougou,Burkina Faso</div>
-                  <div class="col-md-4">Mail: <a href="mailto:mbyonli@gmail.com">mbyonli@gmail.com</a></div>
-                </div>
-              
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">YONLI MOUSSA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#formation">Formation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Expérience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#competences">Compétences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projets">Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
             </div>
-        </footer>
-       
-    <script src="js/bootstrap.min.js"></script>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center hero-content">
+                <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                    <img src="identite.jpg" alt="YONLI MOUSSA" class="profile-img">
+                </div>
+                <div class="col-lg-8">
+                    <h1 class="hero-title fade-in">YONLI MOUSSA</h1>
+                    <p class="hero-subtitle fade-in">Développeur Web Full Stack</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <span>Ouagadougou, Burkina Faso</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-telephone-fill"></i>
+                            <span>+226 60 26 16 56 / +226 57 20 02 99</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-envelope-fill"></i>
+                            <span>mbyonli@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- À propos -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="about-card fade-in">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 text-center mb-3 mb-lg-0">
+                        <i class="bi bi-person-circle" style="font-size: 4rem;"></i>
+                    </div>
+                    <div class="col-lg-10">
+                        <h2 class="mb-3">À PROPOS DE MOI</h2>
+                        <div class="about-content">
+                            Je suis passionné par le développement web full stack. Je développe des sites web professionnels avec le Framework Laravel de PHP et le Framework frontal Bootstrap pour une meilleure expérience utilisateur.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formation -->
+    <section id="formation" class="py-5">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="bi bi-mortarboard-fill"></i>
+                FORMATION
+            </h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="custom-card timeline-item">
+                        <div class="timeline-date">2018-2021</div>
+                        <div class="timeline-content">
+                            <strong>Licence fondamentale en mathématiques et informatique</strong><br>
+                            Option génie logiciel à la Faculté des Sciences Agadir, Maroc.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="custom-card timeline-item">
+                        <div class="timeline-date">2015-2018</div>
+                        <div class="timeline-content">
+                            <strong>Baccalauréat scientifique</strong><br>
+                            Sciences de la vie et mathématiques série D au lycée Diaba Lompo à Fada N'Gourma, Burkina Faso.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="custom-card timeline-item">
+                        <div class="timeline-date">2011-2015</div>
+                        <div class="timeline-content">
+                            <strong>Brevet d'étude du premier cycle</strong><br>
+                            Lycée départemental de Tansarga, Burkina Faso.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="custom-card timeline-item">
+                        <div class="timeline-date">2005-2011</div>
+                        <div class="timeline-content">
+                            <strong>Certificat d'étude primaire</strong><br>
+                            École primaire de Bodiaga, Tapoa, Burkina Faso.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expérience -->
+    <section id="experience" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="bi bi-briefcase-fill"></i>
+                EXPÉRIENCES PROFESSIONNELLES
+            </h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="custom-card timeline-item">
+                        <div class="timeline-date">Novembre 2021 - Avril 2022</div>
+                        <div class="timeline-content">
+                            <strong>Stage - Endeavour Mining</strong><br>
+                            Département IT, Région de l'Est, Burkina Faso.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="custom-card timeline-item">
+                        <div class="timeline-date">Juin - Septembre 2022</div>
+                        <div class="timeline-content">
+                            <strong>Stage en développement web - CIAPEES</strong><br>
+                            Ouagadougou, Burkina Faso.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compétences -->
+    <section id="competences" class="py-5">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="bi bi-award-fill"></i>
+                COMPÉTENCES
+            </h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="skill-item">
+                        <div class="skill-title">Environnement de travail</div>
+                        <div class="skill-content">Windows, Linux</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="skill-item">
+                        <div class="skill-title">SGBD</div>
+                        <div class="skill-content">MySQL, Oracle, SQL Server</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="skill-item">
+                        <div class="skill-title">Langages de Programmation</div>
+                        <div class="skill-content">C, C++, Java, JavaScript, PL/SQL, Visual Basic, PHP</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="skill-item">
+                        <div class="skill-title">Développement Web</div>
+                        <div class="skill-content">Laravel, HTML/CSS, Bootstrap</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="skill-item">
+                        <div class="skill-title">IDE/CMS</div>
+                        <div class="skill-content">Eclipse, Visual Studio Code, Sublime Text</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="skill-item">
+                        <div class="skill-title">Autres</div>
+                        <div class="skill-content">Réseau informatique, Recherche opérationnelle, Algorithmes</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bureautique et Langues -->
+            <div class="row mt-5">
+                <div class="col-lg-6">
+                    <div class="custom-card p-4">
+                        <h4 class="mb-3"><i class="bi bi-laptop text-primary me-2"></i>Bureautique</h4>
+                        <div class="row">
+                            <div class="col-4 text-center">
+                                <strong>Excel</strong><br>
+                                <small class="text-muted">Intermédiaire</small>
+                            </div>
+                            <div class="col-4 text-center">
+                                <strong>Word</strong><br>
+                                <small class="text-muted">Intermédiaire</small>
+                            </div>
+                            <div class="col-4 text-center">
+                                <strong>PowerPoint</strong><br>
+                                <small class="text-muted">Intermédiaire</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="custom-card p-4">
+                        <h4 class="mb-3"><i class="bi bi-translate text-primary me-2"></i>Langues</h4>
+                        <div class="row">
+                            <div class="col-4 text-center">
+                                <strong>Gourmantchéma</strong><br>
+                                <small class="text-muted">Langue maternelle</small>
+                            </div>
+                            <div class="col-4 text-center">
+                                <strong>Français</strong><br>
+                                <small class="text-muted">Très bien</small>
+                            </div>
+                            <div class="col-4 text-center">
+                                <strong>Anglais</strong><br>
+                                <small class="text-muted">Bien</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets -->
+    <section id="projets" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="bi bi-code-square"></i>
+                PROJETS
+            </h2>
+            <div class="row">
+                <div class="col-12">
+                    <div class="project-card">
+                        <h5><i class="bi bi-globe text-primary me-2"></i>Refonte du site CIAPEES</h5>
+                        <p class="mb-0">Participation à la refonte du site de CIAPEES lors de mon stage.</p>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h5><i class="bi bi-truck text-primary me-2"></i>Application de gestion de transport</h5>
+                        <p class="mb-0">Participation au développement d'une application de gestion de transport de voyage à la mine de Boungou avec VB.net.</p>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h5><i class="bi bi-calendar-event text-primary me-2"></i>Site de gestion d'événements</h5>
+                        <p class="mb-0">Réalisation d'un site web de gestion d'événements avec PHP.</p>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h5><i class="bi bi-shop text-primary me-2"></i>Site web pour restaurant</h5>
+                        <p class="mb-0">Site web pour restaurant réalisé avec le framework Laravel de PHP.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="footer">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h3 class="text-white mb-4">
+                    <i class="bi bi-envelope-at-fill me-2"></i>
+                    CONTACT
+                </h3>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-4 mb-3">
+                    <div class="contact-item justify-content-center">
+                        <i class="bi bi-telephone-fill"></i>
+                        <div>
+                            <div>+226 60 26 16 56</div>
+                            <div>+226 57 20 02 99</div>
+                            <div>+212 6 87 79 16 80</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <div class="contact-item justify-content-center">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>Ouagadougou, Burkina Faso</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-3">
+                    <div class="contact-item justify-content-center">
+                        <i class="bi bi-envelope-fill"></i>
+                        <a href="mailto:mbyonli@gmail.com">mbyonli@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+            <div class="text-center">
+                <p class="mb-2">
+                    <strong>Contact de référence:</strong> YONLI YENIKIEDIBA<br>
+                    <i class="bi bi-telephone me-1"></i> +226 72 70 87 25 / +226 67 56 67 70
+                </p>
+                <a href="#home" class="btn btn-outline-warning btn-sm">
+                    <i class="bi bi-arrow-up"></i> Retour en haut
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Fermer le menu mobile si ouvert
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                        toggle: false
+                    });
+                    bsCollapse.hide();
+                    
+                    // Scroll vers la cible
+                    setTimeout(() => {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 300);
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(31, 41, 55, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(31, 41, 55, 0.95)';
+            }
+        });
+
+        // Fermer le menu mobile quand on clique en dehors
+        document.addEventListener('click', function(event) {
+            const navbar = document.querySelector('.navbar-collapse');
+            const toggler = document.querySelector('.navbar-toggler');
+            
+            if (navbar.classList.contains('show') && 
+                !navbar.contains(event.target) && 
+                !toggler.contains(event.target)) {
+                const bsCollapse = new bootstrap.Collapse(navbar, {
+                    toggle: false
+                });
+                bsCollapse.hide();
+            }
+        });
+
+        // Add fade-in animation to elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.custom-card, .skill-item, .project-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
